@@ -1,0 +1,14 @@
+digraph ar2dtool_diagram { 
+rankdir=LR;
+size="1000"
+node [shape = rectangle, color="black"]; "om:Nominal_scale" "om:Cardinal_scale" "qmo:QualityMeasure" "om:Measurement_scale" "om:Interval_scale" "om:Ordinal_scale" "qmo:QualityIndicator" "om:Ratio_scale" "qmo:DerivedMeasure" "qmo:BaseMeasure" ; /*classes style*/
+	"om:Interval_scale" -> "om:Cardinal_scale" [ label = "rdfs:subClassOf" ];
+	"qmo:DerivedMeasure" -> "qmo:QualityMeasure" [ label = "rdfs:subClassOf" ];
+	"om:Ordinal_scale" -> "om:Measurement_scale" [ label = "rdfs:subClassOf" ];
+	"om:Cardinal_scale" -> "om:Measurement_scale" [ label = "rdfs:subClassOf" ];
+	"qmo:QualityIndicator" -> "qmo:QualityMeasure" [ label = "rdfs:subClassOf" ];
+	"om:Ratio_scale" -> "om:Cardinal_scale" [ label = "rdfs:subClassOf" ];
+	"qmo:BaseMeasure" -> "qmo:QualityMeasure" [ label = "rdfs:subClassOf" ];
+	"om:Nominal_scale" -> "om:Measurement_scale" [ label = "rdfs:subClassOf" ];
+
+}
