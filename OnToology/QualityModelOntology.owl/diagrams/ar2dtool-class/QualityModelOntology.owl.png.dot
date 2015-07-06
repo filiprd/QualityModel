@@ -1,0 +1,42 @@
+digraph ar2dtool_diagram { 
+rankdir=LR;
+size="1501"
+node [shape = rectangle, color="orange"]; "eval:SubjectCategory" "qmo:OrdinalScaleItem" "qmo:QualityCharacteristic" "qmo:QualityMeasure" "om:Measurement_scale" "om:Interval_scale" "om:Ordinal_scale" "qmo:QualityIndicator" "qmo:DerivedMeasure" "om:Unit_of_measure" "qmo:RankingFunction" "qmo:BaseMeasure" ; /*classes style*/
+	"NULL" -> "qmo:QualityMeasure" [ label = "rdf:first" ];
+	"NULL" -> "om:Unit_of_measure" [ label = "rdf:first" ];
+	"NULL" -> "-2e36bf47:14e5d9b7c6e:-7ff7" [ label = "rdf:rest" ];
+	"NULL" -> "qmo:QualityCharacteristic" [ label = "rdf:first" ];
+	"NULL" -> "eval:SubjectCategory" [ label = "rdf:first" ];
+	"NULL" -> "qmo:OrdinalScaleItem" [ label = "rdf:first" ];
+	"NULL" -> "rdf:nil" [ label = "rdf:rest" ];
+	"NULL" -> "-2e36bf47:14e5d9b7c6e:-7ffa" [ label = "rdf:rest" ];
+	"NULL" -> "-2e36bf47:14e5d9b7c6e:-7ff6" [ label = "rdf:rest" ];
+	"NULL" -> "-2e36bf47:14e5d9b7c6e:-7ff9" [ label = "rdf:rest" ];
+	"NULL" -> "qmo:RankingFunction" [ label = "rdf:first" ];
+	"NULL" -> "om:Measurement_scale" [ label = "rdf:first" ];
+	"NULL" -> "-2e36bf47:14e5d9b7c6e:-7ff5" [ label = "rdf:rest" ];
+	"NULL" -> "-2e36bf47:14e5d9b7c6e:-7ff8" [ label = "rdf:rest" ];
+	"NULL" -> "-2e36bf47:14e5d9b7c6e:-7ffb" [ label = "owl:members" ];
+	"qmo:DerivedMeasure" -> "qmo:QualityIndicator" [ label = "owl:disjointWith" ];
+	"qmo:BaseMeasure" -> "qmo:QualityIndicator" [ label = "owl:disjointWith" ];
+	"qmo:QualityCharacteristic" -> "xsd:string" [ label = "dc:description" ];
+	"qmo:QualityMeasure" -> "om:Measurement_scale" [ label = "qmo:hasScale" ];
+	"om:Interval_scale" -> "xsd:decimal" [ label = "qmo:hasUpperBoundary" ];
+	"om:Measurement_scale" -> "qmo:RankingFunction" [ label = "qmo:hasRankigFunction" ];
+	"qmo:QualityMeasure" -> "qmo:QualityCharacteristic" [ label = "qmo:measuresCharacteristic" ];
+	"om:Ordinal_scale" -> "qmo:OrdinalScaleItem" [ label = "qmo:hasOrdinalScaleItem" ];
+	"qmo:QualityMeasure" -> "om:Unit_of_measure" [ label = "qmo:hasUnitOfMeasurement" ];
+	"qmo:QualityMeasure" -> "qmo:QualityMeasure" [ label = "qmo:collaboration" ];
+	"om:Interval_scale" -> "xsd:decimal" [ label = "qmo:hasLowerBoundary" ];
+	"qmo:OrdinalScaleItem" -> "xsd:string" [ label = "qmo:hasLabel" ];
+	"qmo:QualityCharacteristic" -> "qmo:QualityMeasure" [ label = "qmo:isMeasuredWith" ];
+	"qmo:QualityCharacteristic" -> "xsd:string" [ label = "dc:title" ];
+	"om:Unit_of_measure" -> "xsd:string" [ label = "qmo:symbol" ];
+	"qmo:QualityCharacteristic" -> "qmo:QualityCharacteristic" [ label = "qmo:hasSubCharacteristic" ];
+	"qmo:QualityCharacteristic" -> "eval:SubjectCategory" [ label = "qmo:isCharacteristicOf" ];
+	"qmo:QualityMeasure" -> "qmo:QualityMeasure" [ label = "qmo:damage" ];
+	"qmo:QualityMeasure" -> "qmo:QualityMeasure" [ label = "qmo:isUsedToObtain" ];
+	"qmo:QualityMeasure" -> "qmo:QualityMeasure" [ label = "qmo:dependency" ];
+	"qmo:OrdinalScaleItem" -> "xsd:int" [ label = "qmo:hasOrder" ];
+
+}
