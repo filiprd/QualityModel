@@ -1,0 +1,69 @@
+<h2>3. Quality Model ontology Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p><a href="#figure_ont">Figure 1</a> shows an overview of the Quality Model ontology and how the concepts relate to one another. 
+</br></br>
+The <a href="#QualityMeasure"><i>QualityMeasure</i></a> class represents the quality measure, which can be either a <a href="#BaseMeasure"><i>BaseMeasure</i></a>, <a href="#DerivedMeasure"><i>DerivedMeasure</i></a>, or a <a href="#QualityIndicator"><i>QualityIndicator</i></a> [<a href="#ref1">1</a>]. One quality measure can be used to obtain some other quality measure (<a href="#isUsedToObtain"><i>isUsedToObtain</i></a>), and two quality measures can be in one of several types of relationships (<a href="#collaboratesWith"><i>collaboratesWith</i></a>, <a href="#dependsOn"><i>dependsOn</i></a>, or <a href="#damages"><i>damages</i></a>. Furthermore, a quality measure measures a quality characteristic, represented by the <a href="#QualityCharacteristic"><i>QualityCharacteristic</i></a> class, and the two classes are connected with the <a href="#measuresCharacteristic"><i>measuresCharacteristic</i></a> and <a href="#isMeasuredWith"><i>isMeasuredWith</i></a> properties.  
+
+</p>
+
+	<div id="figure_ont" class="figure" style="text-align: center;">
+	<img src="images/QMO.png" alt="A high level overview of the qmo" width="1000">
+		<div style="text-align: center;">
+		<a href="#figure_ont">Figure 1</a>. A high level overview of the Quality Model ontology.
+		</div>
+	</div>
+	
+<p>
+The Quality Model ontology reuses the <i>Ontology of units of Measure and related concepts</i> (om) [<a href="#ref2">2</a>]. A quality measure is described with a unit of measure (<a href="#http://www.wurvoc.org/vocabularies/om-1.8/Unit_of_measure"><i>om:Unit_of_measure</i></a>) and with a scale (<a href="#http://www.wurvoc.org/vocabularies/om-1.8/Measurement_scale"><i>om:Measurement_scale</i></a>). There are several possible types of scales, each represented by a class in the <i>OM</i> ontology: ratio scale, interval scale, nominal scale, and ordinal scale [<a href="#ref3">3</a>]. Furthermore, for each scale it is possible to describe a ranking function (<a href="#RankingFunction"><i>RankingFunction</i></a>), which denotes whether a greater value on the scale is better or worse.
+</br></br>
+Finally, a quality characteristic can be related to a category of products, services or actions, which is represented by the <a href="#http://purl.org/net/EvaluationResult#SubjectCategory"><i>eval:SubjectCategory</i></a> class from the <a href="http://purl.org/net/EvaluationResult"><i>Evaluation Result</i> ontology</a>.
+</p>
+The Quality Model ontology has been evaluated using the <a href="http://oeg-upm.net/oops/">OOPS! pitfall scanner</a> [<a href="#ref4">4</a>].
+</br>
+
+<div id="example">
+<h2>3.1 Illustrative Example</h2>
+<p><a href="#example_code">Listing 1</a> presents a short illustrative example of quality model data related to <a href="http://delicias.dia.fi.upm.es/semquare/index.php/Ontology_Matching_Tools">ontology matching tools</a>. For the sake of simplicity, datatype declarations are omitted.
+</p>
+
+<div class="code" id="example_code">
+     
+@prefix ex: &lt;http://example.com&gt; .<br />
+@prefix qmo: &lt;http://purl.org/net/QualityModel#&gt; .<br />
+@prefix eval: &lt;http://purl.org/net/EvaluationResult#&gt; .<br />
+@prefix dc: &lt;http://purl.org/dc/terms/&gt; .<br />
+<br />
+&lt;ex:OutputAlignment&gt; a qmo:BaseMeasure ;<br />
+     dc:title "Output alignment" ;<br />
+     dc: description "The alignment that is produced by the tool when aligning two ontologies" ;<br />
+     qmo:isUsedToObtain &lt;ex:AlignmentPrecision&gt; .<br />
+<br />
+&lt;ex:AlignmentPrecision&gt; a qmo:DerivedMeasure ;<br />
+     dc:title "Alignment precision" ;<br />
+     dc:description "The ratio between the output alignments that match expected alignments 
+     		and all output alignments returned by the tool when performing an ontology matching task" ;<br />
+     qmo:isUsedToObtain &lt;ex:AverageAlignmentPrecision&gt; .<br />
+     <br />
+&lt;ex:AverageAlignmentPrecision&gt; a qmo:QualityIndicator ;<br />
+     dc:title "Average alignment precision" ;<br />
+     dc:description "The average precision of an ontology alignment task." ;<br />
+     qmo:measuresCharacteristic &lt;ex:OntologyAlignmentAccuracy&gt; ;<br />
+     qmo:hasScale &lt;ex:PrecisionScale&gt; .<br />
+     <br />
+&lt;ex:OntologyAlignmentAccuracy&gt; a qmo:QualityCharacteristic ;<br />
+     dc:title "Ontology alignment accuracy" ;<br />
+     dc:description "Degree to which a product or system pro- vides the correct results with the
+     		needed degree of precision when performing an ontology alignment task" ;<br />
+     qmo:isMeasuredWith &lt;ex:AverageAlignmentPrecision&gt; ;<br />
+     qmo:isCharacteristicOf &lt;ex:OntologyMatchingTools&gt; .<br />
+<br />
+&lt;ex:PrecisionScale&gt; a om:Ratio_scale ;<br />
+     qmo:hasLowerBoundary "0" ;<br />
+     qmo:hasUpperBoundary "100" ;<br />
+     qmo:hasRankingFunction &lt;qmo:HigherBest&gt; .<br />
+</div>
+<br />
+        <div style="text-align: center;">
+		<a href="#example_code">Listing 1</a>. Illustrative example of quality model data related to <a href="http://delicias.dia.fi.upm.es/semquare/index.php/Ontology_Matching_Tools">ontology matching tools.</a>
+</div>
+</div>
+

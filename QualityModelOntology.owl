@@ -7,37 +7,37 @@
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY qmo "http://purl.org/net/QualityModel#" >
+    <!ENTITY eval "http://purl.org/net/EvaluationResult#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY qmo "http://purl.org/net/QualityModelOntology#" >
     <!ENTITY om "http://www.wurvoc.org/vocabularies/om-1.8/" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY eval "http://purl.org/net/EvaluationResultsOntology#" >
 ]>
 
 
-<rdf:RDF xmlns="http://purl.org/net/QualityModelOntology#"
-     xml:base="http://purl.org/net/QualityModelOntology"
+<rdf:RDF xmlns="http://purl.org/net/QualityModel#"
+     xml:base="http://purl.org/net/QualityModel"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:eval="http://purl.org/net/EvaluationResultsOntology#"
      xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:eval="http://purl.org/net/EvaluationResult#"
      xmlns:om="http://www.wurvoc.org/vocabularies/om-1.8/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:vann="http://purl.org/vocab/vann/"
-     xmlns:qmo="http://purl.org/net/QualityModelOntology#">
-    <owl:Ontology rdf:about="http://purl.org/net/QualityModelOntology#">
+     xmlns:qmo="http://purl.org/net/QualityModel#">
+    <owl:Ontology rdf:about="http://purl.org/net/QualityModel#">
         <rdfs:label>QualityModelOntology</rdfs:label>
-        <dc:description>The Quality Model Ontology is an ontology for describing quality models and related resources in any particular domain.</dc:description>
-        <terms:created>2015-07-04</terms:created>
-        <terms:license>http://creativecommons.org/licenses/by-nc-sa/2.0/</terms:license>
-        <vann:preferredNamespaceUri>http://purl.org/net/QualityModelOntology#</vann:preferredNamespaceUri>
-        <dc:creator>http://www.garcia-castro.com/foaf#me</dc:creator>
-        <dc:creator>http://filip.milstan.net/foaf#Filip</dc:creator>
-        <rdfs:comment>QualityModel ontology is an ontology for representing information about quality models in any specific domain. Created by Filip Radulovic.</rdfs:comment>
         <vann:preferredNamespacePrefix>qmo</vann:preferredNamespacePrefix>
+        <terms:created>2015-07-29</terms:created>
+        <dc:creator>http://purl.org/net/filiprd</dc:creator>
+        <dc:creator>http://www.garcia-castro.com/foaf#me</dc:creator>
         <owl:versionInfo>1.0</owl:versionInfo>
+        <terms:license>http://creativecommons.org/licenses/by-nc-sa/2.0/</terms:license>
+        <rdfs:comment>Quality Model ontology is an ontology for representing information about quality models in any specific domain. </rdfs:comment>
+        <dc:description>The Quality Model ontology is an ontology for describing quality models and related resources in any particular domain.</dc:description>
+        <vann:preferredNamespaceUri>http://purl.org/net/QualityModel#</vann:preferredNamespaceUri>
     </owl:Ontology>
     
 
@@ -62,8 +62,8 @@
     <!-- http://purl.org/dc/elements/1.1/description -->
 
     <owl:AnnotationProperty rdf:about="&dc;description">
-        <rdfs:domain rdf:resource="&qmo;QualityCharacteristic"/>
-        <rdfs:domain rdf:resource="&qmo;QualityMeasure"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/QualityModelOntology#QualityCharacteristic"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/QualityModelOntology#QualityMeasure"/>
     </owl:AnnotationProperty>
     
 
@@ -71,8 +71,8 @@
     <!-- http://purl.org/dc/elements/1.1/title -->
 
     <owl:AnnotationProperty rdf:about="&dc;title">
-        <rdfs:domain rdf:resource="&qmo;QualityCharacteristic"/>
-        <rdfs:domain rdf:resource="&qmo;QualityMeasure"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/QualityModelOntology#QualityCharacteristic"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/QualityModelOntology#QualityMeasure"/>
     </owl:AnnotationProperty>
     
 
@@ -112,10 +112,10 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#collaboration -->
+    <!-- http://purl.org/net/QualityModel#collaboratesWith -->
 
-    <owl:ObjectProperty rdf:about="&qmo;collaboration">
-        <rdfs:label>collaboration</rdfs:label>
+    <owl:ObjectProperty rdf:about="&qmo;collaboratesWith">
+        <rdfs:label>collaboratesWith</rdfs:label>
         <rdfs:comment>Denotes a relationship between two quality measures in which increasing the value of this measure implies increasing the value of another measure.</rdfs:comment>
         <rdfs:domain rdf:resource="&qmo;QualityMeasure"/>
         <rdfs:range rdf:resource="&qmo;QualityMeasure"/>
@@ -123,21 +123,21 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#damage -->
+    <!-- http://purl.org/net/QualityModel#damages -->
 
-    <owl:ObjectProperty rdf:about="&qmo;damage">
-        <rdfs:label>damage</rdfs:label>
+    <owl:ObjectProperty rdf:about="&qmo;damages">
+        <rdfs:label>damages</rdfs:label>
         <rdfs:comment>Denotes a relationship between two quality measures in which increasing the value of this measure implies decreasing the value of another measure.</rdfs:comment>
-        <rdfs:domain rdf:resource="&qmo;QualityMeasure"/>
         <rdfs:range rdf:resource="&qmo;QualityMeasure"/>
+        <rdfs:domain rdf:resource="&qmo;QualityMeasure"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#dependency -->
+    <!-- http://purl.org/net/QualityModel#dependsOn -->
 
-    <owl:ObjectProperty rdf:about="&qmo;dependency">
-        <rdfs:label>dependency</rdfs:label>
+    <owl:ObjectProperty rdf:about="&qmo;dependsOn">
+        <rdfs:label>dependendsOn</rdfs:label>
         <rdfs:comment>Denotes a relationship between two quality measures which implies that the values of this measure require that another measure fulfills some conditions.</rdfs:comment>
         <rdfs:domain rdf:resource="&qmo;QualityMeasure"/>
         <rdfs:range rdf:resource="&qmo;QualityMeasure"/>
@@ -145,7 +145,7 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#hasOrdinalScaleItem -->
+    <!-- http://purl.org/net/QualityModel#hasOrdinalScaleItem -->
 
     <owl:ObjectProperty rdf:about="&qmo;hasOrdinalScaleItem">
         <rdfs:label>hasOrdinalScaleItem</rdfs:label>
@@ -156,7 +156,7 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#hasRankigFunction -->
+    <!-- http://purl.org/net/QualityModel#hasRankigFunction -->
 
     <owl:ObjectProperty rdf:about="&qmo;hasRankigFunction">
         <rdfs:label>hasRankingFunction</rdfs:label>
@@ -167,7 +167,7 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#hasScale -->
+    <!-- http://purl.org/net/QualityModel#hasScale -->
 
     <owl:ObjectProperty rdf:about="&qmo;hasScale">
         <rdfs:label>hasScale</rdfs:label>
@@ -178,7 +178,7 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#hasSubCharacteristic -->
+    <!-- http://purl.org/net/QualityModel#hasSubCharacteristic -->
 
     <owl:ObjectProperty rdf:about="&qmo;hasSubCharacteristic">
         <rdfs:label>hasSubCharacteristic</rdfs:label>
@@ -189,7 +189,7 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#hasUnitOfMeasurement -->
+    <!-- http://purl.org/net/QualityModel#hasUnitOfMeasurement -->
 
     <owl:ObjectProperty rdf:about="&qmo;hasUnitOfMeasurement">
         <rdfs:label>hasUnitOfMeasurement</rdfs:label>
@@ -200,7 +200,7 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#isCharacteristicOf -->
+    <!-- http://purl.org/net/QualityModel#isCharacteristicOf -->
 
     <owl:ObjectProperty rdf:about="&qmo;isCharacteristicOf">
         <rdfs:label>isCharacteristicOf</rdfs:label>
@@ -211,7 +211,7 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#isMeasuredWith -->
+    <!-- http://purl.org/net/QualityModel#isMeasuredWith -->
 
     <owl:ObjectProperty rdf:about="&qmo;isMeasuredWith">
         <rdfs:label>isMeasuredWith</rdfs:label>
@@ -222,7 +222,7 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#isUsedToObtain -->
+    <!-- http://purl.org/net/QualityModel#isUsedToObtain -->
 
     <owl:ObjectProperty rdf:about="&qmo;isUsedToObtain">
         <rdfs:label>isUsedToObtain</rdfs:label>
@@ -233,7 +233,7 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#measuresCharacteristic -->
+    <!-- http://purl.org/net/QualityModel#measuresCharacteristic -->
 
     <owl:ObjectProperty rdf:about="&qmo;measuresCharacteristic">
         <rdfs:label>measuresCharacteristic</rdfs:label>
@@ -271,7 +271,7 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#hasLabel -->
+    <!-- http://purl.org/net/QualityModel#hasLabel -->
 
     <owl:DatatypeProperty rdf:about="&qmo;hasLabel">
         <rdfs:label>hasLabel</rdfs:label>
@@ -283,18 +283,18 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#hasLowerBoundary -->
+    <!-- http://purl.org/net/QualityModel#hasLowerBoundary -->
 
     <owl:DatatypeProperty rdf:about="&qmo;hasLowerBoundary">
         <rdfs:label>hasLowerBoundary</rdfs:label>
         <rdfs:comment>Denotes a lower limit of a scale (e.g., -273 on Kelvin scale).</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;decimal"/>
-        <rdfs:domain rdf:resource="&om;Interval_scale"/>
+        <rdfs:domain rdf:resource="&om;Cardinal_scale"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#hasOrder -->
+    <!-- http://purl.org/net/QualityModel#hasOrder -->
 
     <owl:DatatypeProperty rdf:about="&qmo;hasOrder">
         <rdfs:label>hasOrder</rdfs:label>
@@ -305,18 +305,18 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#hasUpperBoundary -->
+    <!-- http://purl.org/net/QualityModel#hasUpperBoundary -->
 
     <owl:DatatypeProperty rdf:about="&qmo;hasUpperBoundary">
         <rdfs:label>hasUpperBoundary</rdfs:label>
         <rdfs:comment>Denotes an upper limit of a scale.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;decimal"/>
-        <rdfs:domain rdf:resource="&om;Interval_scale"/>
+        <rdfs:domain rdf:resource="&om;Cardinal_scale"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#symbol -->
+    <!-- http://purl.org/net/QualityModel#symbol -->
 
     <owl:DatatypeProperty rdf:about="&qmo;symbol">
         <rdfs:label>symbol</rdfs:label>
@@ -338,35 +338,33 @@
     
 
 
-    <!-- http://purl.org/net/EvaluationResultsOntology#SubjectCategory -->
+    <!-- http://purl.org/net/EvaluationResult#SubjectCategory -->
 
     <owl:Class rdf:about="&eval;SubjectCategory"/>
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#BaseMeasure -->
+    <!-- http://purl.org/net/QualityModel#BaseMeasure -->
 
     <owl:Class rdf:about="&qmo;BaseMeasure">
         <rdfs:label>BaseMeasure</rdfs:label>
         <rdfs:subClassOf rdf:resource="&qmo;QualityMeasure"/>
-        <owl:disjointWith rdf:resource="&qmo;QualityIndicator"/>
         <rdfs:comment>Base measure is a quality measure for which, in the process of evaluation, the results are obtained in an individual test and are related to direct outputs of the evaluation. </rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#DerivedMeasure -->
+    <!-- http://purl.org/net/QualityModel#DerivedMeasure -->
 
     <owl:Class rdf:about="&qmo;DerivedMeasure">
         <rdfs:label>DerivedMeasure</rdfs:label>
         <rdfs:subClassOf rdf:resource="&qmo;QualityMeasure"/>
-        <owl:disjointWith rdf:resource="&qmo;QualityIndicator"/>
         <rdfs:comment>Derived measure is a measure that is obtained in an individual evaluation test by combining base measures.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#OrdinalScaleItem -->
+    <!-- http://purl.org/net/QualityModel#OrdinalScaleItem -->
 
     <owl:Class rdf:about="&qmo;OrdinalScaleItem">
         <rdfs:label>OrdinalScaleItem</rdfs:label>
@@ -375,7 +373,7 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#QualityCharacteristic -->
+    <!-- http://purl.org/net/QualityModel#QualityCharacteristic -->
 
     <owl:Class rdf:about="&qmo;QualityCharacteristic">
         <rdfs:label>QualityCharacteristic</rdfs:label>
@@ -384,7 +382,7 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#QualityIndicator -->
+    <!-- http://purl.org/net/QualityModel#QualityIndicator -->
 
     <owl:Class rdf:about="&qmo;QualityIndicator">
         <rdfs:label>QualityIndicator</rdfs:label>
@@ -394,7 +392,7 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#QualityMeasure -->
+    <!-- http://purl.org/net/QualityModel#QualityMeasure -->
 
     <owl:Class rdf:about="&qmo;QualityMeasure">
         <rdfs:label>QualityMeasure</rdfs:label>
@@ -403,10 +401,18 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#RankingFunction -->
+    <!-- http://purl.org/net/QualityModel#RankingFunction -->
 
     <owl:Class rdf:about="&qmo;RankingFunction">
         <rdfs:label>RankingFunction</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&qmo;LowerBest"/>
+                    <rdf:Description rdf:about="&qmo;HigherBest"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:comment>Ranking function is a function which denotes how two values of a measurement scale can be ranked, i.e., if higher or lower value is better.</rdfs:comment>
     </owl:Class>
     
@@ -481,7 +487,7 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#HigherBest -->
+    <!-- http://purl.org/net/QualityModel#HigherBest -->
 
     <owl:Thing rdf:about="&qmo;HigherBest">
         <rdf:type rdf:resource="&qmo;RankingFunction"/>
@@ -492,7 +498,7 @@
     
 
 
-    <!-- http://purl.org/net/QualityModelOntology#LowerBest -->
+    <!-- http://purl.org/net/QualityModel#LowerBest -->
 
     <owl:Thing rdf:about="&qmo;LowerBest">
         <rdf:type rdf:resource="&qmo;RankingFunction"/>
@@ -521,6 +527,14 @@
             <rdf:Description rdf:about="&qmo;RankingFunction"/>
             <rdf:Description rdf:about="&om;Measurement_scale"/>
             <rdf:Description rdf:about="&om;Unit_of_measure"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&qmo;BaseMeasure"/>
+            <rdf:Description rdf:about="&qmo;DerivedMeasure"/>
+            <rdf:Description rdf:about="&qmo;QualityIndicator"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>
