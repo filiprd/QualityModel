@@ -62,8 +62,8 @@
     <!-- http://purl.org/dc/elements/1.1/description -->
 
     <owl:AnnotationProperty rdf:about="&dc;description">
-        <rdfs:domain rdf:resource="http://purl.org/net/QualityModelOntology#QualityCharacteristic"/>
-        <rdfs:domain rdf:resource="http://purl.org/net/QualityModelOntology#QualityMeasure"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/QualityModel#QualityCharacteristic"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/QualityModel#QualityMeasure"/>
     </owl:AnnotationProperty>
     
 
@@ -71,8 +71,8 @@
     <!-- http://purl.org/dc/elements/1.1/title -->
 
     <owl:AnnotationProperty rdf:about="&dc;title">
-        <rdfs:domain rdf:resource="http://purl.org/net/QualityModelOntology#QualityCharacteristic"/>
-        <rdfs:domain rdf:resource="http://purl.org/net/QualityModelOntology#QualityMeasure"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/QualityModel#QualityCharacteristic"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/QualityModel#QualityMeasure"/>
     </owl:AnnotationProperty>
     
 
