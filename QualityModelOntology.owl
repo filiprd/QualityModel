@@ -37,6 +37,7 @@
         <terms:license>http://creativecommons.org/licenses/by-nc-sa/2.0/</terms:license>
         <rdfs:comment>Quality Model ontology is an ontology for representing information about quality models in any specific domain. </rdfs:comment>
         <dc:description>The Quality Model ontology is an ontology for describing quality models and related resources in any particular domain.</dc:description>
+        <dc:title>Quality Model Ontology</dc:title>
         <vann:preferredNamespaceUri>http://purl.org/net/QualityModel#</vann:preferredNamespaceUri>
     </owl:Ontology>
     
@@ -62,8 +63,8 @@
     <!-- http://purl.org/dc/elements/1.1/description -->
 
     <owl:AnnotationProperty rdf:about="&dc;description">
-        <rdfs:domain rdf:resource="http://purl.org/net/QualityModel#QualityCharacteristic"/>
-        <rdfs:domain rdf:resource="http://purl.org/net/QualityModel#QualityMeasure"/>
+        <rdfs:domain rdf:resource="&qmo;QualityCharacteristic"/>
+        <rdfs:domain rdf:resource="&qmo;QualityMeasure"/>
     </owl:AnnotationProperty>
     
 
@@ -71,8 +72,8 @@
     <!-- http://purl.org/dc/elements/1.1/title -->
 
     <owl:AnnotationProperty rdf:about="&dc;title">
-        <rdfs:domain rdf:resource="http://purl.org/net/QualityModel#QualityCharacteristic"/>
-        <rdfs:domain rdf:resource="http://purl.org/net/QualityModel#QualityMeasure"/>
+        <rdfs:domain rdf:resource="&qmo;QualityCharacteristic"/>
+        <rdfs:domain rdf:resource="&qmo;QualityMeasure"/>
     </owl:AnnotationProperty>
     
 
@@ -276,9 +277,15 @@
     <owl:DatatypeProperty rdf:about="&qmo;hasLabel">
         <rdfs:label>hasLabel</rdfs:label>
         <rdfs:comment>Denotes a label of a nominal scale or of an ordinal scale item.</rdfs:comment>
-        <rdfs:domain rdf:resource="&qmo;OrdinalScaleItem"/>
         <rdfs:range rdf:resource="&xsd;string"/>
-        <rdfs:domain rdf:resource="&om;Nominal_scale"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&qmo;OrdinalScaleItem"/>
+                    <rdf:Description rdf:about="&om;Nominal_scale"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
