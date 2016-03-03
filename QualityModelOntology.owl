@@ -62,19 +62,13 @@
 
     <!-- http://purl.org/dc/elements/1.1/description -->
 
-    <owl:AnnotationProperty rdf:about="&dc;description">
-        <rdfs:domain rdf:resource="&qmo;QualityCharacteristic"/>
-        <rdfs:domain rdf:resource="&qmo;QualityMeasure"/>
-    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&dc;description"/>
     
 
 
     <!-- http://purl.org/dc/elements/1.1/title -->
 
-    <owl:AnnotationProperty rdf:about="&dc;title">
-        <rdfs:domain rdf:resource="&qmo;QualityCharacteristic"/>
-        <rdfs:domain rdf:resource="&qmo;QualityMeasure"/>
-    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
     
 
 
